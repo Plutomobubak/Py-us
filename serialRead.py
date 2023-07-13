@@ -2,10 +2,12 @@ import serial
 from pynput.keyboard import Key, Listener, Controller as keyboard_controller
 from pynput.mouse import Button, Controller
 
+#initalization
 keyboard = keyboard_controller()
 mouse = Controller()
-x = 5
-y= 5
+x = 0
+y= 0
+#functions
 def readArrows(line):
     if "i" in line:
         keyboard.press(Key.up)
@@ -55,10 +57,11 @@ def readWSAD(line):
             keyboard.press("d")
         else:
             keyboard.release("d")
-
+#main loop
 while(True):
     with serial.Serial('/dev/ttyACM3', 19200, timeout=1) as ser:
         line = str(ser.readline())
+        #(un)comment for your usage
         readWSAD(line)
         readArrows(line)
-        
+        #readMouse(line)
