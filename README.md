@@ -1,6 +1,6 @@
 
 # Pyčus
-
+Stands for Python Ynput Čontrol with Usb Serial
 Python and Typescript library for ESP32 running Jaculus, that gets analog joystick input and outputs it as WSAD, Arrows or Mouse input using serial
 
 
@@ -51,22 +51,23 @@ https://www.python.org/downloads/
 **Pip libraries**
 
 Linux, Mac using terminal
-Windows using Python Interpreter
-```bash
-  pip3 install pyserial pynput
+Windows using cmd
+```cmd
+  cd *your pip script location*
+  pip3.exe install pyserial pynput
 ```
     
 ## Usage
 
 * Open project in VSCode with Jaculus and connect ESP32
-* In leftdown corner select serial port with your ESP32
+* In leftdown corner select serial bus with your ESP32
 * Edit *index.ts* pins according to your pin usage *(Joystick 1 is used for WSAD and Joystick 2 for Arrows or Mouse)*
 * Build and flash  **!! don't Monitor, it won't work !!**
-* Edit *serialRead.py* for your use by using predefined functions
+* Edit *serialRead.py* for your use by using predefined functions and change serial bus
     * readWSAD() - reads WSAD Input from Joystick1
     * readArrows() - reads Arrows Input from Joystick2
     * readMouse() - reads Mouse Input from Joystick2
-* Open new bash terminal or python interpreter and run serialRead.py
+* Open new terminal or python interpreter and run serialRead.py
 ```bash
     python3 serialRead.py
 ```
