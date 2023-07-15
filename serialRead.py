@@ -7,6 +7,10 @@ keyboard = keyboard_controller()
 mouse = Controller()
 x = 0
 y= 0
+#edit port to /dev/ttyACM(n) for linux
+#or COM(n) for Windows
+#(I have no idea how does it work on mac)
+ser = serial.Serial('COM4', 19200, timeout=1)
 #functions
 def readArrows(line):
     if "i" in line:
@@ -59,9 +63,11 @@ def readWSAD(line):
             keyboard.release("d")
 #main loop
 while(True):
-    with serial.Serial('/dev/ttyACM3', 19200, timeout=1) as ser:
-        line = str(ser.readline())
+    line = str(ser.readline())
+    #this shit is for Windows (i hate you Microsoft <3 )
+    #to explain: Windows reads some useless boot messages so i need to filter them
+    if "boot" not in line:
         #(un)comment for your usage
-        readWSAD(line)
-        readArrows(line)
-        #readMouse(line)
+        #readWSAD(line)
+        #readArrows(line)
+        readMouse(line)
