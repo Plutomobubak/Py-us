@@ -1,6 +1,7 @@
 
 # Pyčus
 Stands for Python Ynput Čontrol with Usb Serial
+
 Python and Typescript library for ESP32 running Jaculus, that gets analog joystick input and outputs it as WSAD, Arrows or Mouse input using serial
 
 
